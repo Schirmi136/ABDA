@@ -1,0 +1,16 @@
+# a 2-cycle that is not broken from the outside
+b -> -ra
+c -> -rb
+c -> -rd
+d -> -rc
+e -> -rd
+f -> -re
+
+=> a	[ra]
+=> b	[rb]
+=> c	[rc]
+=> d	[rd]
+=> e	[re]
+=> f	[rf]
+
+# conclusion a should not be warranted

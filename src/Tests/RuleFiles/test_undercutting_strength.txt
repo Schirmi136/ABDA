@@ -1,0 +1,7 @@
+# an undercut should always succeed, regardless of rule strength
+
+=> -r1
+
+=> a	[r1]
+
+# a should not be warranted

@@ -1,0 +1,11 @@
+# let's see if argument construction doesn't stop too soon 
+# when trying to prevent looping
+
+=> a
+a => b
+a => c
+b, c => d
+
+# d should be warranted
+# the argument for d should have included the rule =>a twice but that's OK
+# because these are in "parallel" (not in each other's subargument)

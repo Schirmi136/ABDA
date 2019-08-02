@@ -1,0 +1,13 @@
+# test if subargument attack works properly
+
+=> -c
+
+=> a
+a => b
+b => c
+
+=> d
+d => -b
+
+# c should not be warranted
+# -c should be warranted

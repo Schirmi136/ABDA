@@ -1,0 +1,17 @@
+# test for elitist and democratic
+b, d -> p
+f, h -> -p
+
+=> a
+=> c
+
+a => b
+c => d
+e => f
+g => h
+
+=> e
+=> g
+
+# under last link, p nor -p should be warranted (under elitist and democratic)
+# under weakest link, -p should be warranted under both elitist and democratic

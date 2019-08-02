@@ -1,0 +1,17 @@
+# test for last link and weakest link
+b, d -> p
+f, h -> -p
+
+=> a
+=> c
+e => f
+g => h
+
+a => b
+c => d
+=> e
+=> g
+
+# under last link p should be warranted
+# under weakest link p nor -p should be warranted
+# this should be the case under both the elitist and democratic ordering

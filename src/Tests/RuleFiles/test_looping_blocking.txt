@@ -1,0 +1,5 @@
+# let's see if argument construction avoids getting into an infinite loop
+b -> a
+
+=> a
+a => b

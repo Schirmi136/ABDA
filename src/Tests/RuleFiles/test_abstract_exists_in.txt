@@ -1,0 +1,26 @@
+# let's test if an argument is OUT if it has only one attacker that is IN
+# (the other ones being OUT and UNDEC)
+a -> -ra
+a -> -ri
+b -> -rc
+c -> -rb
+c -> -ri
+d -> -re
+e -> -ri
+f -> -rg
+g -> -rh
+h -> -ri
+i -> -rj
+
+=> a	[ra]
+=> b	[rb]
+=> c	[rc]
+=> d	[rd]
+=> e	[re]
+=> f	[rf]
+=> g	[rg]
+=> h	[rh]
+=> i	[ri]
+=> j	[rj]
+
+# conclusion j should be warranted

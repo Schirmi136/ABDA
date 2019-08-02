@@ -1,0 +1,14 @@
+# a 2-cycle that is broken from the outside
+b -> -ra
+c -> -rb
+c -> -rd
+d -> -rc
+e -> -rd
+
+=> a	[ra]
+=> b	[rb]
+=> c	[rc]
+=> d	[rd]
+=> e	[re]
+
+# conclusion a should be warranted

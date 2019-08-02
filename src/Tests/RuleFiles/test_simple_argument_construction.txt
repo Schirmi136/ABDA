@@ -1,0 +1,9 @@
+# let's test some simple argument construction
+
+=> a
+=> b
+a, b => c
+a, c => d
+b, d => e
+
+# e should be warranted because there's an argument for it (without attackers)

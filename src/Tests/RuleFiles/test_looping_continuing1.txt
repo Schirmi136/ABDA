@@ -1,0 +1,23 @@
+# let's see if argument construction doesn't stop too soon 
+# when trying to prevent looping
+a -> p
+b -> -p
+
+=> a
+
+=> b
+
+a, b => c
+a, b => d
+
+c, d => b
+
+c, d => a
+
+# when applying last-link, p should be warranted and -p should not be warranted
+# this is because we can construct a strong argument for p by having c,d=>a as
+# the last defeasible rule
+# this illustrates that argument construction should avoid including the same
+# rule (that is, including a rule that is already in a subargument) but not
+# avoid including the same conclusion (that is, including a conclusion that is
+# already in a subargument)

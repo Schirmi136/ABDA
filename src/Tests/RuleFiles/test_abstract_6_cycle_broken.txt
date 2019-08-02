@@ -1,0 +1,26 @@
+# a 6-cycle that is broken from the outside
+b -> -ra
+c -> -rb
+c -> -rh
+d -> -rc
+e -> -rd
+f -> -re
+g -> -rf
+h -> -rg
+i -> -rf
+j -> -ri
+k -> -rj
+
+=> a	[ra]
+=> b	[rb]
+=> c	[rc]
+=> d	[rd]
+=> e	[re]
+=> f	[rf]
+=> g	[rg]
+=> h	[rh]
+=> i	[ri]
+=> j	[rj]
+=> k	[rk]
+
+# conclusion a should be warranted

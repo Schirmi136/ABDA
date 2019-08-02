@@ -1,0 +1,17 @@
+# let's test if an argument is IN if its attackers become OUT at different times
+a -> -rb
+b -> -rg
+c -> -rd
+d -> -re
+e -> -rf
+f -> -rg
+
+=> a	[ra]
+=> b	[rb]
+=> c	[rc]
+=> d	[rd]
+=> e	[re]
+=> f	[rf]
+=> g	[rg]
+
+# conclusion g should be warranted
