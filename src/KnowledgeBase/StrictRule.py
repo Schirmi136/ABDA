@@ -10,7 +10,7 @@ class StrictRule(BaseRule):
                                          "\s*(?P<RightSide>((-)?\w+))")
         match = strict_rule_pattern.match(text)
         if not match:
-            raise Exception(f"{text} is not a valid strict ASPIC rule.")
+            return None
         left_side = []
         if match.group("LeftSide") is not None:
             left_side = [x.strip() for x in match.group("LeftSide").split(",")]

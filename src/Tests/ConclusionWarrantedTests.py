@@ -8,7 +8,8 @@ from KnowledgeBase.AspicRulesLoader import load_rules
 
 
 class ConclusionWarrantedTests(unittest.TestCase):
-    def bootstrap_shell(self, file, wl, do):
+    @staticmethod
+    def bootstrap_shell(file, wl, do):
         # Set configuration (so DefeasibleRuleCollection and Argument can access it)
         Configuration.WeakestLink = wl
         Configuration.DemocraticOrder = do
@@ -22,11 +23,11 @@ class ConclusionWarrantedTests(unittest.TestCase):
         graph = ArgumentationGraph(arguments, attacks)
 
         # Compute grounded extension and minMax - Numbering
-        groundedLabelling = graph.get_grounded_labelling()
-        minMaxNumbering = graph.get_min_max(groundedLabelling)
+        grounded_labelling = graph.get_grounded_labelling()
+        min_max_numbering = graph.get_min_max(grounded_labelling)
 
         # Start shell for user interaction
-        return ABDAShell(graph, groundedLabelling, minMaxNumbering)
+        return ABDAShell(graph, grounded_labelling, min_max_numbering)
 
     def test_abstract_2_cycle_broken(self):
         for wl in [True, False]:
@@ -67,8 +68,8 @@ class ConclusionWarrantedTests(unittest.TestCase):
     def test_looping_blocking(self):
         for wl in [True, False]:
             for do in [True, False]:
-                shell = self.bootstrap_shell("RuleFiles/test_looping_blocking.txt", wl, do)
-                self.assertTrue(True) #Test passed, if no infinite loop occurs
+                self.bootstrap_shell("RuleFiles/test_looping_blocking.txt", wl, do)
+                self.assertTrue(True)  # Test passed, if no infinite loop occurs
 
     def test_looping_continuing1(self):
         for do in [True, False]:
@@ -83,28 +84,28 @@ class ConclusionWarrantedTests(unittest.TestCase):
                 self.assertTrue(shell.is_warranted("d"))
 
     def test_rebut_strength1(self):
-            for do in [True, False]:
-                shell = self.bootstrap_shell("RuleFiles/test_rebut_strength1.txt", False, do)
-                self.assertTrue(shell.is_warranted("p"))
-                shell = self.bootstrap_shell("RuleFiles/test_rebut_strength1.txt", True, do)
-                self.assertFalse(shell.is_warranted("p"))
-                self.assertFalse(shell.is_warranted("-p"))
-            pass
+        for do in [True, False]:
+            shell = self.bootstrap_shell("RuleFiles/test_rebut_strength1.txt", False, do)
+            self.assertTrue(shell.is_warranted("p"))
+            shell = self.bootstrap_shell("RuleFiles/test_rebut_strength1.txt", True, do)
+            self.assertFalse(shell.is_warranted("p"))
+            self.assertFalse(shell.is_warranted("-p"))
+        pass
 
     def test_rebut_strength2(self):
-            for wl in [True, False]:
-                shell = self.bootstrap_shell("RuleFiles/test_rebut_strength2.txt", wl, False)
-                self.assertTrue(shell.is_warranted("-p"))
-                shell = self.bootstrap_shell("RuleFiles/test_rebut_strength2.txt", wl, True)
-                self.assertTrue(shell.is_warranted("p"))
+        for wl in [True, False]:
+            shell = self.bootstrap_shell("RuleFiles/test_rebut_strength2.txt", wl, False)
+            self.assertTrue(shell.is_warranted("-p"))
+            shell = self.bootstrap_shell("RuleFiles/test_rebut_strength2.txt", wl, True)
+            self.assertTrue(shell.is_warranted("p"))
 
     def test_rebut_strength3(self):
-            for do in [True, False]:
-                shell = self.bootstrap_shell("RuleFiles/test_rebut_strength3.txt", False, do)
-                self.assertFalse(shell.is_warranted("p"))
-                self.assertFalse(shell.is_warranted("-p"))
-                shell = self.bootstrap_shell("RuleFiles/test_rebut_strength3.txt", True, do)
-                self.assertTrue(shell.is_warranted("-p"))
+        for do in [True, False]:
+            shell = self.bootstrap_shell("RuleFiles/test_rebut_strength3.txt", False, do)
+            self.assertFalse(shell.is_warranted("p"))
+            self.assertFalse(shell.is_warranted("-p"))
+            shell = self.bootstrap_shell("RuleFiles/test_rebut_strength3.txt", True, do)
+            self.assertTrue(shell.is_warranted("-p"))
 
     def test_simple_argument_construction(self):
         for wl in [True, False]:
@@ -124,8 +125,6 @@ class ConclusionWarrantedTests(unittest.TestCase):
             for do in [True, False]:
                 shell = self.bootstrap_shell("RuleFiles/test_undercutting_strength.txt", wl, do)
                 self.assertFalse(shell.is_warranted("a"))
-
-
 
 
 if __name__ == '__main__':

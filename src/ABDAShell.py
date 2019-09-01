@@ -3,8 +3,6 @@ from GroundedDiscussionGame.Game import Game
 from GroundedDiscussionGame.GameShell import GameShell
 
 
-# noinspection PyUnusedLocal
-# noinspection PyMethodMayBeStatic
 class ABDAShell(cmd.Cmd):
     intro = 'Welcome to ABDA. Type help or ? to list commands.\n'
     prompt = '> '
@@ -36,11 +34,12 @@ class ABDAShell(cmd.Cmd):
         game_shell = GameShell(game, ai_player, arg_by_conclusion)
         game_shell.cmdloop()
 
+    # noinspection PyMethodMayBeStatic
     def do_quit(self, arg):
         """Quits ABDA"""
         print("Bye!")
         return True
 
-    def is_warranted(self, argument):
-        return any(filter(lambda k: k.Conclusion == argument and self.GroundedExtension[k] == "in",
-                                self.GroundedExtension.keys()))
+    def is_warranted(self, arg):
+        return any(filter(lambda k: k.Conclusion == arg and self.GroundedExtension[k] == "in",
+                          self.GroundedExtension.keys()))

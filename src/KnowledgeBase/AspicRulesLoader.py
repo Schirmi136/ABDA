@@ -17,10 +17,14 @@ def load_rules(path):
             current_strength += 1
             line = file.readline()
             continue
-        try:
-            rules.StrictRules.add(StrictRule.parse(line))
-        except:
-            rules.DefeasibleRules.add(DefeasibleRule.parse(line, current_strength))
+        strict_rule = StrictRule.parse(line)
+        defeasible_rule = DefeasibleRule.parse(line, current_strength)
+        if strict_rule:
+            rules.StrictRules.add(strict_rule)
+        elif defeasible_rule:
+            rules.DefeasibleRules.add(defeasible_rule)
+        else:
+            raise Exception(f"{line} could not be parsed.")
         line = file.readline()
     file.close()
     return rules

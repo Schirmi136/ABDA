@@ -53,7 +53,7 @@ class GameShell(cmd.Cmd):
     def do_HTB(self, arg):
         """HTB [statement]
             Proponent move: [statement] has to be the case. """
-        self.move(HTB(self.Game, arg if isinstance(arg, Argument) else  self.get_argument_by_name(arg)))
+        self.move(HTB(self.Game, arg if isinstance(arg, Argument) else self.get_argument_by_name(arg)))
 
     def do_CB(self, arg):
         """CB [statement]
@@ -83,10 +83,11 @@ class GameShell(cmd.Cmd):
 
     def do_do_possible_move(self, arg):
         try:
-            move = self.Game.EnabledMoves[int(arg)-1]
+            move = self.Game.EnabledMoves[int(arg) - 1]
             human_player = "O" if self.AIPlayer == "P" else "P"
             print(human_player + "> " + str(move))
             self.move(move)
+        # TODO specify exception
         except:
             print(str(arg) + " is not a possible move")
 
