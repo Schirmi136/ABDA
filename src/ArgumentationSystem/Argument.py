@@ -39,7 +39,7 @@ class Argument(object):
         for condition in rule.LeftSide:
             for s in self.BuildFromArguments:
                 if s.Conclusion == condition:
-                    left_side_string.append(f"({self.get_flattened_tree(s.TopRule)})")
+                    left_side_string.append(f"({s.Flattened})")
                     break
         if left_side_string:
             if len(left_side_string) > 1:
@@ -58,6 +58,8 @@ class Argument(object):
         return self <= other and not other <= self
 
     def __str__(self):
+        if not self.Flattened: 
+            self.Flattened = self.get_flattened_tree(self.TopRule)
         return str(self.Flattened)
 
     def __hash__(self):
