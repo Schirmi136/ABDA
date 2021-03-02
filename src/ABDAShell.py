@@ -1,4 +1,7 @@
 import cmd
+import networkx as nx
+import matplotlib.pyplot as plt
+from GraphVisualization.GraphConvert import GraphConvert
 from GroundedDiscussionGame.Game import Game
 from GroundedDiscussionGame.GameShell import GameShell
 
@@ -12,6 +15,14 @@ class ABDAShell(cmd.Cmd):
         self.Graph = graph
         self.GroundedExtension = grounded_extension
         self.MinMax = min_max
+
+    def do_print(self, arg):
+        """print
+        Prints the created argumentation graph"""
+        G = GraphConvert.ConvertToNetworkXGraph(self.Graph)
+        nx.draw(G, with_labels=True)
+        plt.show()
+
 
     def do_warranted(self, arg):
         """warranted [statement]
