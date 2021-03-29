@@ -53,8 +53,8 @@ class ArgumentationGraph:
                 min_max[arg] = min([min_max[a] for a in arg.AttackedFromArguments if a in in_arguments
                                     and a in min_max.keys()], default=0) + 1
                 changes = True
-
-        for i in in_arguments.union(out_arguments):
+        max_value = max(min_max.values())
+        for i in labelling.keys():
             if i not in min_max:
-                min_max[i] = "inf"
+                min_max[i] = max_value + 1
         return min_max

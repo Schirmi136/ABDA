@@ -19,10 +19,16 @@ class ABDAShell(cmd.Cmd):
     def do_print(self, arg):
         """print
         Prints the created argumentation graph"""
-        G = GraphConvert.ConvertToNetworkXGraph(self.Graph)
-        nx.draw(G, with_labels=True)
+        G = GraphConvert.convert_to_networkx_graph(self.Graph, self.GroundedExtension, self.MinMax)
+        pos = nx.planar_layout(G)
+        nx.draw(G, pos=pos, with_labels=True)
         plt.show()
 
+    def do_export_graph(self, arg):
+        """print
+        Prints the created argumentation graph"""
+        G = GraphConvert.convert_to_networkx_graph(self.Graph, self.GroundedExtension, self.MinMax)
+        nx.write_graphml(G, 'graphexport.graphml')
 
     def do_warranted(self, arg):
         """warranted [statement]
@@ -42,7 +48,7 @@ class ABDAShell(cmd.Cmd):
             print(arg + " is not a valid statement")
             return
         game = Game(self.Graph, arg_by_conclusion, self.GroundedExtension, self.MinMax)
-        game_shell = GameShell(game, ai_player, arg_by_conclusion)
+        game_shell = GameShell(game, self.GroundedExtension, ai_player, arg_by_conclusion)
         game_shell.cmdloop()
 
     # noinspection PyMethodMayBeStatic

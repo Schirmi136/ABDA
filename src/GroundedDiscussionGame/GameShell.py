@@ -11,9 +11,10 @@ from GroundedDiscussionGame.Moves.RETRACT import RETRACT
 # noinspection PyMethodMayBeStatic,PyMethodMayBeStatic,PyPep8Naming,PyUnusedLocal
 class GameShell(cmd.Cmd):
 
-    def __init__(self, game, ai_player, argument):
+    def __init__(self, game, grounded_labelling, ai_player, argument):
         super().__init__()
         self.Game = game
+        self.GroundedLabelling = grounded_labelling
         game.MainArgument = argument
         game.update_enabled_moves()
         self.AIPlayer = ai_player
@@ -37,10 +38,12 @@ class GameShell(cmd.Cmd):
                 elif self.AIPlayer == "P" and isinstance(move, ProponentMove):
                     possible_moves.append(move)
             if possible_moves:
-                if len(possible_moves) > 1:
-                    minValue = self.Game.MinMax[possible_moves[0].Argument]
-                    minRule = possible_moves[0]
-                    for m in possible_moves:
+                htb_moves = [move for move in possible_moves if isinstance(move, HTB)]
+                if len(htb_moves) > 1:  # lowest number strategy
+                    in_argument_moves = [move for move in htb_moves if self.GroundedLabelling[move.Argument] == "in"]
+                    minValue = self.Game.MinMax[in_argument_moves[0].Argument]
+                    minRule = in_argument_moves[0]
+                    for m in in_argument_moves:
                         if self.Game.MinMax[m.Argument] < minValue:
                             minRule = m
                     self.move(minRule)
