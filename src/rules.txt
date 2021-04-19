@@ -1,6 +1,7 @@
--> a
--> b
+-> js
+-> mns
+-> wfr
 
-b => -c
-
-a => c
+js => s
+mns => -s
+wfr => r

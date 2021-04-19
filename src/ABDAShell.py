@@ -25,14 +25,36 @@ class ABDAShell(cmd.Cmd):
         plt.show()
 
     def do_export_graph(self, arg):
-        """print
-        Prints the created argumentation graph"""
+        """export_graph
+        Exports the graph as .graphml file."""
         G = GraphConvert.convert_to_networkx_graph(self.Graph, self.GroundedExtension, self.MinMax)
         nx.write_graphml(G, 'graphexport.graphml')
 
+    def do_argument(self, arg):
+        """argument [A]
+        Prints the argument A with Conc(A),Sub(A), DefRules(A), LastDefRules(A), TopRule(A) """
+        a = next((x for x in self.Graph.Arguments if str(x) == arg), None)
+        if not a:
+            print(arg + " is not a valid argument")
+        else:
+            a.dump()
+
+    def do_arguments(self, arg):
+        """arguments
+        Prints the constructed arguments"""
+        for a in self.Graph.Arguments:
+            print(a)
+
+    def do_all_warranted(self, arg):
+        """warranted
+        Prints all warranted arguments"""
+        for a in self.Graph.Arguments:
+            if self.is_warranted(a.Conclusion):
+                print(a.Conclusion + " is warranted")
+
     def do_warranted(self, arg):
         """warranted [statement]
-        Indicated whether [statement] can be justified"""
+        Indicates whether [statement] can be justified"""
         if self.is_warranted(arg):
             print(arg + " is warranted")
         else:

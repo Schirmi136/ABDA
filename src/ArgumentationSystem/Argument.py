@@ -48,6 +48,15 @@ class Argument(object):
                 output_string = left_side_string[0] + output_string
         return output_string
 
+    def dump(self):
+        print("Argument " + str(self))
+        print("Conclusion: " + str(self.Conclusion))
+        print("SubArguments: {" + ', '.join((str(s) for s in self.Sub)) + "}")
+        print("DefeasibleRules: {" + ', '.join((str(d) for d in self.DefRules)) + "}")
+        print("LastDefeasibleRules: {" + ', '.join((str(l) for l in self.LastDefRules)) + "}")
+        print("TopRule: " + str(self.TopRule))
+
+
     def __le__(self, other):
         if Configuration.WeakestLink:
             return self.DefRules <= other.DefRules
