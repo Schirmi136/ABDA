@@ -28,7 +28,6 @@ class ArgumentationGraph:
             labelling[a] = "in"
             for b in a.AttacksArguments:
                 labelling[b] = "out"
-
         return labelling
 
     @staticmethod

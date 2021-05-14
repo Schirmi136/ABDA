@@ -23,12 +23,14 @@ if __name__ == "__main__":
     linkGroup.add_argument("-eo", help="elitist order", action="store_true")
 
     parser.add_argument("-tp", help="close strict rules under transposition", action="store_true")
+    parser.add_argument("-verbose", help="print additional information while constrocting argumentation graph", action="store_true")
 
     args = parser.parse_args()
 
     # Set configuration (so DefeasibleRuleCollection and Argument can access it)
     Configuration.DemocraticOrder = args.do
     Configuration.WeakestLink = args.wl
+    Configuration.Verbose = args.verbose
 
     # Load rules from file
     print("Loading rules...")

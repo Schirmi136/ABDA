@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="node" attr.name="MinMaxNumber" attr.type="int" />
+  <key id="d1" for="node" attr.name="Label" attr.type="string" />
+  <key id="d0" for="node" attr.name="Text" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="=&gt;b">
+      <data key="d0">=&gt;b</data>
+      <data key="d1">in</data>
+      <data key="d2">1</data>
+    </node>
+    <node id="=&gt;a">
+      <data key="d0">=&gt;a</data>
+      <data key="d1">out</data>
+      <data key="d2">2</data>
+    </node>
+    <node id="(=&gt;b)-&gt;-ra">
+      <data key="d0">(=&gt;b)-&gt;-ra</data>
+      <data key="d1">in</data>
+      <data key="d2">1</data>
+    </node>
+    <edge source="(=&gt;b)-&gt;-ra" target="=&gt;a" />
+  </graph>
+</graphml>

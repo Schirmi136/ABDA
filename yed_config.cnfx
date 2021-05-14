@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<styles>
+  <style name="abda_export_config" scope="node" selectionOnly="false">
+    <mapping>
+      <source name="Text" origin="customProperty" type="string"/>
+      <target name="labelText" type="string">
+        <hints>
+          <hint type="int">0</hint>
+        </hints>
+      </target>
+      <conversion type="asIs"/>
+    </mapping>
+    <mapping>
+      <source name="Label" origin="customProperty" type="string"/>
+      <target name="fillColor" type="color">
+        <hints/>
+      </target>
+      <conversion type="discrete">
+        <discrete>
+          <value>in</value>
+          <result>#99cc00</result>
+        </discrete>
+        <discrete>
+          <value>out</value>
+          <result>#ff0000</result>
+        </discrete>
+        <discrete>
+          <value>undec</value>
+          <result>#ffff00</result>
+        </discrete>
+      </conversion>
+    </mapping>
+  </style>
+</styles>

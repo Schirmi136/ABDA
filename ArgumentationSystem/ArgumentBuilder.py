@@ -1,6 +1,7 @@
 from ArgumentationSystem.Argument import Argument
 from KnowledgeBase.DefeasibleRule import DefeasibleRule
 from ArgumentationSystem.Attack import Attack
+from Configuration import Configuration
 
 
 def get_applicable_arguments(rule, arguments, used_arguments):
@@ -49,12 +50,14 @@ def does_attacks(a, b):
     # Undercutting?
     for b1 in b.Sub:
         if isinstance(b1.TopRule, DefeasibleRule) and is_negation(b1.TopRule.Name, a.Conclusion):
-            print(str(a) + " undercuts " + str(b) + " on " + str(b1.TopRule.Name))
+            if Configuration.Verbose:
+                print(str(a) + " undercuts " + str(b) + " on " + str(b1.TopRule.Name))
             return True
     # Rebutting?
     for b1 in b.Sub:
         if is_negation(a.Conclusion, b1.Conclusion) and not a < b1:
-            print(str(a) + " rebuts " + str(b) + " on " + str(b1))
+            if Configuration.Verbose:
+                print(str(a) + " rebuts " + str(b) + " on " + str(b1))
             return True
     return False
 
