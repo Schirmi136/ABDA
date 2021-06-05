@@ -55,7 +55,7 @@ def does_attacks(a, b):
             return True
     # Rebutting?
     for b1 in b.Sub:
-        if is_negation(a.Conclusion, b1.Conclusion) and not a < b1:
+        if  is_negation(a.Conclusion, b1.Conclusion) and not a < b1:
             if Configuration.Verbose:
                 print(str(a) + " rebuts " + str(b) + " on " + str(b1))
             return True

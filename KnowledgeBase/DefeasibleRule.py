@@ -14,7 +14,7 @@ class DefeasibleRule(BaseRule):
     @staticmethod
     def parse(text, strength):
         defeasible_rule_pattern = re.compile("(((?P<LeftSide>((-)?\w+)(\s*,\s*((-)?\w+))*))?)\s*=>"
-                                             "\s*(?P<RightSide>((-)?\w+))\s+(\[(?P<Name>(-)?\w+)\])?")
+                                             "\s*(?P<RightSide>((-)?\w+))\s*(\[(?P<Name>(-)?\w+)\])?")
         match = defeasible_rule_pattern.match(text)
         if not match:
             return None
