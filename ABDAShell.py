@@ -21,7 +21,22 @@ class ABDAShell(cmd.Cmd):
         Prints the created argumentation graph"""
         G = GraphConvert.convert_to_networkx_graph(self.Graph, self.GroundedExtension, self.MinMax)
         pos = nx.planar_layout(G)
-        nx.draw(G, pos=pos, with_labels=True)
+
+        fig, ax = plt.subplots()
+        color_map = []
+        for node in G.nodes:
+            x, y = pos[node]
+            if self.GroundedExtension[node] == 'in':
+                color = "green"
+            elif self.GroundedExtension[node] == 'out':
+                color = "red"
+            else:
+                color = "yellow"
+            ax.text(x, y, str(node), bbox=dict(facecolor=color, alpha=0.5), horizontalalignment='center')
+            color_map.append(color)
+
+        nx.draw(G, pos=pos, arrows=True, node_color="none", node_shape='s', arrowstyle='->')
+
         plt.show()
 
     def do_export_graph(self, arg):
@@ -38,6 +53,7 @@ class ABDAShell(cmd.Cmd):
             print(arg + " is not a valid argument")
         else:
             a.dump()
+            print("Min-Max: " + str(self.MinMax[a]))
 
     def do_arguments(self, arg):
         """arguments
@@ -48,9 +64,12 @@ class ABDAShell(cmd.Cmd):
     def do_all_warranted(self, arg):
         """warranted
         Prints all warranted arguments"""
+        warranted_conclusions = set()
         for a in self.Graph.Arguments:
             if self.is_warranted(a.Conclusion):
-                print(a.Conclusion + " is warranted")
+                warranted_conclusions.add(a.Conclusion)
+        for conclusion in warranted_conclusions:
+            print(conclusion + " is warranted")
 
     def do_warranted(self, arg):
         """warranted [statement]

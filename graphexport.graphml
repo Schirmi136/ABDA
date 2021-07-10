@@ -6,19 +6,39 @@
   <graph edgedefault="directed">
     <node id="=&gt;b">
       <data key="d0">=&gt;b</data>
+      <data key="d1">out</data>
+      <data key="d2">2</data>
+    </node>
+    <node id="(=&gt;c)-&gt;-br">
+      <data key="d0">(=&gt;c)-&gt;-br</data>
+      <data key="d1">in</data>
+      <data key="d2">3</data>
+    </node>
+    <node id="(=&gt;a)-&gt;-br">
+      <data key="d0">(=&gt;a)-&gt;-br</data>
       <data key="d1">in</data>
       <data key="d2">1</data>
     </node>
     <node id="=&gt;a">
       <data key="d0">=&gt;a</data>
-      <data key="d1">out</data>
-      <data key="d2">2</data>
-    </node>
-    <node id="(=&gt;b)-&gt;-ra">
-      <data key="d0">(=&gt;b)-&gt;-ra</data>
       <data key="d1">in</data>
       <data key="d2">1</data>
     </node>
-    <edge source="(=&gt;b)-&gt;-ra" target="=&gt;a" />
+    <node id="=&gt;c">
+      <data key="d0">=&gt;c</data>
+      <data key="d1">in</data>
+      <data key="d2">3</data>
+    </node>
+    <node id="(=&gt;b)-&gt;-cr">
+      <data key="d0">(=&gt;b)-&gt;-cr</data>
+      <data key="d1">out</data>
+      <data key="d2">2</data>
+    </node>
+    <edge source="(=&gt;c)-&gt;-br" target="(=&gt;b)-&gt;-cr" />
+    <edge source="(=&gt;c)-&gt;-br" target="=&gt;b" />
+    <edge source="(=&gt;a)-&gt;-br" target="(=&gt;b)-&gt;-cr" />
+    <edge source="(=&gt;a)-&gt;-br" target="=&gt;b" />
+    <edge source="(=&gt;b)-&gt;-cr" target="=&gt;c" />
+    <edge source="(=&gt;b)-&gt;-cr" target="(=&gt;c)-&gt;-br" />
   </graph>
 </graphml>

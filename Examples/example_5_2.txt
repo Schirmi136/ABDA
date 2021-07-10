@@ -1,0 +1,7 @@
+-> wr
+-> go
+b -> -hs
+m -> hs
+
+wr => m
+go => b

@@ -1,6 +1,5 @@
 a -> -br
 b -> -cr
-c -> -ar
 
 => a [ar]
 => b [br]
