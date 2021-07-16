@@ -4,41 +4,57 @@
   <key id="d1" for="node" attr.name="Label" attr.type="string" />
   <key id="d0" for="node" attr.name="Text" attr.type="string" />
   <graph edgedefault="directed">
-    <node id="=&gt;b">
-      <data key="d0">=&gt;b</data>
-      <data key="d1">out</data>
+    <node id="(-&gt;go)=&gt;b">
+      <data key="d0">(-&gt;go)=&gt;b</data>
+      <data key="d1">undec</data>
       <data key="d2">2</data>
     </node>
-    <node id="(=&gt;c)-&gt;-br">
-      <data key="d0">(=&gt;c)-&gt;-br</data>
-      <data key="d1">in</data>
-      <data key="d2">3</data>
+    <node id="((-&gt;go)=&gt;b)-&gt;-hs">
+      <data key="d0">((-&gt;go)=&gt;b)-&gt;-hs</data>
+      <data key="d1">undec</data>
+      <data key="d2">2</data>
     </node>
-    <node id="(=&gt;a)-&gt;-br">
-      <data key="d0">(=&gt;a)-&gt;-br</data>
+    <node id="((-&gt;wr)=&gt;m)-&gt;hs">
+      <data key="d0">((-&gt;wr)=&gt;m)-&gt;hs</data>
+      <data key="d1">undec</data>
+      <data key="d2">2</data>
+    </node>
+    <node id="-&gt;go">
+      <data key="d0">-&gt;go</data>
       <data key="d1">in</data>
       <data key="d2">1</data>
     </node>
-    <node id="=&gt;a">
-      <data key="d0">=&gt;a</data>
+    <node id="-&gt;wr">
+      <data key="d0">-&gt;wr</data>
       <data key="d1">in</data>
       <data key="d2">1</data>
     </node>
-    <node id="=&gt;c">
-      <data key="d0">=&gt;c</data>
-      <data key="d1">in</data>
-      <data key="d2">3</data>
-    </node>
-    <node id="(=&gt;b)-&gt;-cr">
-      <data key="d0">(=&gt;b)-&gt;-cr</data>
-      <data key="d1">out</data>
+    <node id="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m">
+      <data key="d0">(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m</data>
+      <data key="d1">undec</data>
       <data key="d2">2</data>
     </node>
-    <edge source="(=&gt;c)-&gt;-br" target="(=&gt;b)-&gt;-cr" />
-    <edge source="(=&gt;c)-&gt;-br" target="=&gt;b" />
-    <edge source="(=&gt;a)-&gt;-br" target="(=&gt;b)-&gt;-cr" />
-    <edge source="(=&gt;a)-&gt;-br" target="=&gt;b" />
-    <edge source="(=&gt;b)-&gt;-cr" target="=&gt;c" />
-    <edge source="(=&gt;b)-&gt;-cr" target="(=&gt;c)-&gt;-br" />
+    <node id="(-&gt;wr)=&gt;m">
+      <data key="d0">(-&gt;wr)=&gt;m</data>
+      <data key="d1">undec</data>
+      <data key="d2">2</data>
+    </node>
+    <node id="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b">
+      <data key="d0">(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b</data>
+      <data key="d1">undec</data>
+      <data key="d2">2</data>
+    </node>
+    <edge source="(-&gt;go)=&gt;b" target="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b" />
+    <edge source="((-&gt;go)=&gt;b)-&gt;-hs" target="((-&gt;wr)=&gt;m)-&gt;hs" />
+    <edge source="((-&gt;go)=&gt;b)-&gt;-hs" target="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b" />
+    <edge source="((-&gt;wr)=&gt;m)-&gt;hs" target="((-&gt;go)=&gt;b)-&gt;-hs" />
+    <edge source="((-&gt;wr)=&gt;m)-&gt;hs" target="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m" />
+    <edge source="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m" target="((-&gt;wr)=&gt;m)-&gt;hs" />
+    <edge source="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m" target="(-&gt;wr)=&gt;m" />
+    <edge source="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m" target="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b" />
+    <edge source="(-&gt;wr)=&gt;m" target="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m" />
+    <edge source="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b" target="(-&gt;go)=&gt;b" />
+    <edge source="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b" target="((-&gt;go)=&gt;b)-&gt;-hs" />
+    <edge source="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b" target="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m" />
   </graph>
 </graphml>

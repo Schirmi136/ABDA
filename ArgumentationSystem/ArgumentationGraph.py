@@ -4,7 +4,6 @@ class ArgumentationGraph:
         self.Attacks = attacks
 
     def get_grounded_labelling(self):
-        # TODO !!REFACTORING!!
         # Get all arguments which are not attacked
         in_arguments = set(filter(lambda a: not a.AttackedFromArguments, self.Arguments))
         out_arguments = set()

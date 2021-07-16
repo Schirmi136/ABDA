@@ -27,8 +27,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    print(args)
-
     if not args.do and not args.eo:
         print("WARNING: no order type specified. Using democratic order")
         args.do = True

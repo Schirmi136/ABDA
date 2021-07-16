@@ -90,7 +90,6 @@ class GameShell(cmd.Cmd):
             human_player = "O" if self.AIPlayer == "P" else "P"
             print(human_player + "> " + str(move))
             self.move(move)
-        # TODO specify exception
         except:
             print(str(arg) + " is not a possible move")
 
