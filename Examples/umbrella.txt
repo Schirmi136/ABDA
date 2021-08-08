@@ -1,0 +1,7 @@
+-> sonnenschein
+regen -> schirm
+-regen -> -schirm
+
+sonnenschein => -regen
+
+=> regen

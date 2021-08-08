@@ -2,7 +2,7 @@ from Configuration import Configuration
 from ABDAShell import ABDAShell
 from ArgumentationSystem.ArgumentBuilder import build_arguments
 from ArgumentationSystem.ArgumentBuilder import build_attacks
-from KnowledgeBase.AspicRulesLoader import load_rules
+from KnowledgeBase.AspicRulesLoader import load_rules, InvalidRuleFileException
 from ArgumentationSystem.ArgumentationGraph import ArgumentationGraph
 import argparse
 
@@ -44,7 +44,14 @@ if __name__ == "__main__":
 
     # Load rules from file
     print("Loading rules...")
-    rules = load_rules(args.file)
+    try:
+        rules = load_rules(args.file)
+    except IOError:
+        print(f"ERROR: Cannot read rule file {args.file}")
+        quit(-1)
+    except InvalidRuleFileException as ex:
+        print(f"ERROR: rule file {args.file} is not valid: {ex}")
+        quit(-1)
     if not args.tp and not rules.is_closed_under_transposition():
         print("WARNING: strict rules are not closed under transposition")
     if args.tp:

@@ -3,6 +3,10 @@ from KnowledgeBase.DefeasibleRule import DefeasibleRule
 from KnowledgeBase.StrictRule import StrictRule
 
 
+class InvalidRuleFileException(Exception):
+    pass
+
+
 def load_rules(path):
     file = open(path, "r")
     rules = RuleCollection()
@@ -24,7 +28,7 @@ def load_rules(path):
         elif defeasible_rule:
             rules.DefeasibleRules.add(defeasible_rule)
         else:
-            raise Exception(f"{line} could not be parsed.")
+            raise InvalidRuleFileException(f"{line} could not be parsed.")
         line = file.readline()
     file.close()
     return rules
