@@ -1,7 +1,0 @@
--> js
--> mns
--> wfr
-
-js => s
-mns => -s
-wfr => r

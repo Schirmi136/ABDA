@@ -51,9 +51,9 @@ class Argument(object):
     def dump(self):
         print("Argument " + str(self))
         print("Conclusion: " + str(self.Conclusion))
-        print("SubArguments: {" + ', '.join((str(s) for s in self.Sub)) + "}")
-        print("DefeasibleRules: {" + ', '.join((str(d) for d in self.DefRules)) + "}")
-        print("LastDefeasibleRules: {" + ', '.join((str(l) for l in self.LastDefRules)) + "}")
+        print("SubArguments: {" + '; '.join((str(s) for s in self.Sub)) + "}")
+        print("DefeasibleRules: {" + '; '.join((str(d) for d in self.DefRules)) + "}")
+        print("LastDefeasibleRules: {" + '; '.join((str(l) for l in self.LastDefRules)) + "}")
         print("TopRule: " + str(self.TopRule))
 
 

@@ -4,57 +4,54 @@
   <key id="d1" for="node" attr.name="Label" attr.type="string" />
   <key id="d0" for="node" attr.name="Text" attr.type="string" />
   <graph edgedefault="directed">
-    <node id="(-&gt;go)=&gt;b">
-      <data key="d0">(-&gt;go)=&gt;b</data>
-      <data key="d1">undec</data>
+    <node id="=&gt;c">
+      <data key="d0">=&gt;c</data>
+      <data key="d1">out</data>
       <data key="d2">2</data>
     </node>
-    <node id="((-&gt;go)=&gt;b)-&gt;-hs">
-      <data key="d0">((-&gt;go)=&gt;b)-&gt;-hs</data>
-      <data key="d1">undec</data>
-      <data key="d2">2</data>
-    </node>
-    <node id="((-&gt;wr)=&gt;m)-&gt;hs">
-      <data key="d0">((-&gt;wr)=&gt;m)-&gt;hs</data>
-      <data key="d1">undec</data>
-      <data key="d2">2</data>
-    </node>
-    <node id="-&gt;go">
-      <data key="d0">-&gt;go</data>
+    <node id="=&gt;b">
+      <data key="d0">=&gt;b</data>
       <data key="d1">in</data>
       <data key="d2">1</data>
     </node>
-    <node id="-&gt;wr">
-      <data key="d0">-&gt;wr</data>
+    <node id="((-&gt;a),(=&gt;b))=&gt;c">
+      <data key="d0">((-&gt;a),(=&gt;b))=&gt;c</data>
       <data key="d1">in</data>
       <data key="d2">1</data>
     </node>
-    <node id="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m">
-      <data key="d0">(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m</data>
+    <node id="(((-&gt;a),(=&gt;b))=&gt;c)=&gt;-d">
+      <data key="d0">(((-&gt;a),(=&gt;b))=&gt;c)=&gt;-d</data>
       <data key="d1">undec</data>
+      <data key="d2">3</data>
+    </node>
+    <node id="((-&gt;a)=&gt;d)=&gt;-a">
+      <data key="d0">((-&gt;a)=&gt;d)=&gt;-a</data>
+      <data key="d1">out</data>
       <data key="d2">2</data>
     </node>
-    <node id="(-&gt;wr)=&gt;m">
-      <data key="d0">(-&gt;wr)=&gt;m</data>
-      <data key="d1">undec</data>
+    <node id="-&gt;a">
+      <data key="d0">-&gt;a</data>
+      <data key="d1">in</data>
+      <data key="d2">1</data>
+    </node>
+    <node id="(=&gt;c)=&gt;-d">
+      <data key="d0">(=&gt;c)=&gt;-d</data>
+      <data key="d1">out</data>
       <data key="d2">2</data>
     </node>
-    <node id="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b">
-      <data key="d0">(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b</data>
+    <node id="(-&gt;a)=&gt;d">
+      <data key="d0">(-&gt;a)=&gt;d</data>
       <data key="d1">undec</data>
-      <data key="d2">2</data>
+      <data key="d2">3</data>
     </node>
-    <edge source="(-&gt;go)=&gt;b" target="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b" />
-    <edge source="((-&gt;go)=&gt;b)-&gt;-hs" target="((-&gt;wr)=&gt;m)-&gt;hs" />
-    <edge source="((-&gt;go)=&gt;b)-&gt;-hs" target="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b" />
-    <edge source="((-&gt;wr)=&gt;m)-&gt;hs" target="((-&gt;go)=&gt;b)-&gt;-hs" />
-    <edge source="((-&gt;wr)=&gt;m)-&gt;hs" target="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m" />
-    <edge source="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m" target="((-&gt;wr)=&gt;m)-&gt;hs" />
-    <edge source="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m" target="(-&gt;wr)=&gt;m" />
-    <edge source="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m" target="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b" />
-    <edge source="(-&gt;wr)=&gt;m" target="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m" />
-    <edge source="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b" target="(-&gt;go)=&gt;b" />
-    <edge source="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b" target="((-&gt;go)=&gt;b)-&gt;-hs" />
-    <edge source="(((-&gt;wr)=&gt;m)-&gt;hs)-&gt;-b" target="(((-&gt;go)=&gt;b)-&gt;-hs)-&gt;-m" />
+    <edge source="(((-&gt;a),(=&gt;b))=&gt;c)=&gt;-d" target="((-&gt;a)=&gt;d)=&gt;-a" />
+    <edge source="(((-&gt;a),(=&gt;b))=&gt;c)=&gt;-d" target="(-&gt;a)=&gt;d" />
+    <edge source="-&gt;a" target="=&gt;c" />
+    <edge source="-&gt;a" target="((-&gt;a)=&gt;d)=&gt;-a" />
+    <edge source="-&gt;a" target="(=&gt;c)=&gt;-d" />
+    <edge source="(=&gt;c)=&gt;-d" target="(-&gt;a)=&gt;d" />
+    <edge source="(=&gt;c)=&gt;-d" target="((-&gt;a)=&gt;d)=&gt;-a" />
+    <edge source="(-&gt;a)=&gt;d" target="(=&gt;c)=&gt;-d" />
+    <edge source="(-&gt;a)=&gt;d" target="(((-&gt;a),(=&gt;b))=&gt;c)=&gt;-d" />
   </graph>
 </graphml>

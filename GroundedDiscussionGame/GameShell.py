@@ -81,8 +81,10 @@ class GameShell(cmd.Cmd):
     def do_show_possible_moves(self, arg):
         """show_possible_moves
         Displays a list of all possible moves the user can make"""
+        number = 1
         for m in self.Game.EnabledMoves:
-            print(m)
+            print(str(number) + ": " + str(m))
+            number = number + 1
 
     def do_do_possible_move(self, arg):
         try:
